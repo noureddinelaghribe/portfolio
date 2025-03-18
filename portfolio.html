@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noureddine Laghrib - Android Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d5af6;
+            /* Main accent color - subtle blue */
+            --secondary-color: #2c3e50;
+            /* Dark navy for headers */
+            --light-text: #6c7a89;
+            /* For secondary text */
+            --text-color: #333333;
+            /* For primary text */
+            --light-bg: #f8f9fa;
+            /* Light background */
+            --border-color: #e9ecef;
+            /* Light border color */
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --card-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: white;
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--card-shadow);
+            border: 3px solid var(--border-color);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+
+        .profile-info h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-info h2 i {
+            font-size: 18px;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            color: var(--light-text);
+            margin: 20px 0;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* Links Section */
+        .links-container {
+            background-color: white;
+            padding: 16px;
+            border-radius: var(--card-radius);
+            margin: 24px 0;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .link-item:hover {
+            background-color: var(--primary-color);
+        }
+
+        .link-item i {
+            font-size: 16px;
+        }
+
+        /* Section Styling */
+        .section {
+            background-color: white;
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+            margin: 30px 0;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 16px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-content {
+            padding: 24px;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background-color: var(--light-bg);
+            border-radius: var(--card-radius);
+            transition: var(--transition);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .tech-item:hover {
+            box-shadow: var(--card-shadow);
+        }
+
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+            color: white;
+            background-color: var(--secondary-color);
+        }
+
+        .tech-details {
+            flex: 1;
+        }
+
+        .tech-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .tech-description {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        /* Projects Section */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: white;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-header {
+            display: flex;
+            padding: 20px;
+            gap: 16px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--secondary-color);
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--light-text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-screenshots {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc #eee;
+        }
+
+        .project-screenshots::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .project-screenshots::-webkit-scrollbar-track {
+            background: #eee;
+            border-radius: 10px;
+        }
+
+        .project-screenshots::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+
+        .screenshot {
+            flex: 0 0 auto;
+            width: 160px;
+            height: 320px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .screenshot:hover {
+            transform: translateY(-3px);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-footer {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .download-btn:hover {
+            background-color: #214bc9;
+        }
+
+        .github-btn {
+            background-color: #333;
+            color: white;
+        }
+
+        .github-btn:hover {
+            background-color: #222;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            background-color: white;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            .profile-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-bio {
+                text-align: center;
+            }
+
+            .tech-stack,
+            .project-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .project-footer {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-info h1 {
+                font-size: 24px;
+            }
+
+            .profile-info h2 {
+                font-size: 16px;
+            }
+
+            .section-header {
+                font-size: 16px;
+                padding: 12px 16px;
+            }
+
+            .section-content {
+                padding: 16px;
+            }
+
+            .screenshot {
+                width: 140px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-image">
+                <img src="/api/placeholder/400/400" alt="Noureddine Laghrib">
+            </div>
+            <div class="profile-info">
+                <h1>Noureddine Laghrib</h1>
+                <h2><i class="fas fa-mobile-alt"></i> Android Developer</h2>
+                <div class="profile-bio">
+                    Experienced Android developer with a strong focus on creating efficient, scalable, and maintainable mobile applications. Specializing in Java and Kotlin development with expertise in modern Android architecture patterns.
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-container">
+            <div class="links">
+                <a href="#" class="link-item">
+                    <i class="fab fa-google-play"></i> Google Play
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </div>
+
+        <!-- Tech Stack Section -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-code"></i> Technical Skills
+            </div>
+            <div class="section-content">
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Android SDK</div>
+                            <div class="tech-description">Expert in Android app development using the latest SDK features</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <span>K</span>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Kotlin</div>
+                            <div class="tech-description">Primary language for Android development with Coroutines & Flow</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <span>J</span>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Java</div>
+                            <div class="tech-description">Strong foundation in Java for Android development</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Room & SQLite</div>
+                            <div class="tech-description">Local database implementation for Android apps</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Firebase</div>
+                            <div class="tech-description">Authentication, Database, Cloud Messaging, Analytics</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">RESTful APIs</div>
+                            <div class="tech-description">Experience with Retrofit, OkHttp, and JSON parsing</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">MVVM Architecture</div>
+                            <div class="tech-description">Clean architecture with ViewModel, LiveData & Repositories</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="tech-details">
+                            <div class="tech-name">Material Design</div>
+                            <div class="tech-description">Creating coherent UIs following Material Design principles</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Projects Section -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-rocket"></i> Featured Projects
+            </div>
+            <div class="section-content">
+                <div class="project-gallery">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <img src="/api/placeholder/128/128" alt="FitTrack Pro">
+                            </div>
+                            <div>
+                                <h3 class="project-title">FitTrack Pro</h3>
+                                <p class="project-description">Comprehensive fitness tracking app with workout plans, nutrition tracking and progress analytics</p>
+                            </div>
+                        </div>
+
+                        <div class="project-screenshots">
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="FitTrack Pro Screenshot 1">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="FitTrack Pro Screenshot 2">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="FitTrack Pro Screenshot 3">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="FitTrack Pro Screenshot 4">
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <button class="project-btn download-btn">
+                                <i class="fab fa-google-play"></i> View on Play Store
+                            </button>
+                            <button class="project-btn github-btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <img src="/api/placeholder/128/128" alt="WeatherNow">
+                            </div>
+                            <div>
+                                <h3 class="project-title">WeatherNow</h3>
+                                <p class="project-description">Real-time weather forecasting app with interactive maps and severe weather alerts</p>
+                            </div>
+                        </div>
+
+                        <div class="project-screenshots">
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="WeatherNow Screenshot 1">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="WeatherNow Screenshot 2">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="WeatherNow Screenshot 3">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="WeatherNow Screenshot 4">
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <button class="project-btn download-btn">
+                                <i class="fab fa-google-play"></i> View on Play Store
+                            </button>
+                            <button class="project-btn github-btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <img src="/api/placeholder/128/128" alt="TaskMaster">
+                            </div>
+                            <div>
+                                <h3 class="project-title">TaskMaster</h3>
+                                <p class="project-description">Productivity app with task management, reminders, and collaborative features</p>
+                            </div>
+                        </div>
+
+                        <div class="project-screenshots">
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="TaskMaster Screenshot 1">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="TaskMaster Screenshot 2">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="TaskMaster Screenshot 3">
+                            </div>
+                            <div class="screenshot">
+                                <img src="/api/placeholder/180/320" alt="TaskMaster Screenshot 4">
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <button class="project-btn download-btn">
+                                <i class="fab fa-google-play"></i> View on Play Store
+                            </button>
+                            <button class="project-btn github-btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <p>© 2025 Noureddine Laghrib. All rights reserved.</p>
+                <p>Android developer specializing in creating high-quality mobile applications</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Project buttons functionality
+        document.querySelectorAll('.download-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const projectName = this.closest('.project-card').querySelector('.project-title').textContent;
+                window.open('https://play.google.com', '_blank');
+            });
+        });
+
+        document.querySelectorAll('.github-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const projectName = this.closest('.project-card').querySelector('.project-title').textContent;
+                window.open('https://github.com', '_blank');
+            });
+        });
+
+        // Screenshot preview functionality
+        document.querySelectorAll('.screenshot').forEach(screenshot => {
+            screenshot.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+
+</html>
