@@ -244,19 +244,27 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%; /* للحصول على شكل دائري */
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-        }
 
-        .project-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+         .project-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    /* Prevent stretching in flex/grid layouts */
+    min-width: 60px;
+}
+
+.project-icon img {
+    width: 100%;
+    height: 100%;
+    display: block; /* Remove inline spacing */
+    object-fit: cover; /* Prevent distortion */
+    object-position: center; /* Ensure centered focus */
+    /* Fallback for SVG images */
+    font-family: 'object-fit: cover; object-position: center;';
+}
+         
 
         .project-title {
             font-size: 18px;
