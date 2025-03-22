@@ -1028,7 +1028,7 @@
                         </div>
 
                         <div class="project-footer">
-                            <button class="">
+                            <button class="project-btn download-btn">
                                 <i class="fab fa-google-play"></i> Download APK
                             </button>
                             <button class="project-btn github-btn">
@@ -1163,6 +1163,80 @@
     </div>
 
     <script>
+        // وظيفة أزرار المشروع باستخدام switch-case
+document.querySelectorAll('.download-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const projectName = this.closest('.project-card').querySelector('.project-title').textContent.trim();
+        switch(projectName) {
+            case 'Project 1':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 2':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 3':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 4':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 5':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 6':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 7':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 8':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+                case 'Project 9':
+                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+                break;
+            default:
+                break;
+        }
+    });
+});
+
+document.querySelectorAll('.github-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const projectName = this.closest('.project-card').querySelector('.project-title').textContent.trim();
+        switch(projectName) {
+            case 'Project 1':
+                window.open('https://github.com/noureddinne21/WriteFlow', '_blank');
+                break;
+                case 'Project 2':
+                window.open('https://github.com/noureddinne21/vikindo', '_blank');
+                break;
+                case 'Project 3':
+                window.open('https://github.com/noureddinne21/SMPOS', '_blank');
+                break;
+                case 'Project 4':
+                window.open('https://github.com/noureddinne21/EduQuest', '_blank');
+                break;
+                case 'Project 5':
+                window.open('https://github.com/noureddinne21/Sweets-Store', '_blank');
+                break;
+                case 'Project 6':
+                window.open('https://github.com/noureddinne21/NotePro', '_blank');
+                break;
+                case 'Project 7':
+                window.open('https://github.com/noureddinne21/Calculator-iOS-16', '_blank');
+                break;
+                case 'Project 8':
+                window.open('https://github.com/noureddinne21/Car-Logo-Quiz', '_blank');
+                break;
+                case 'Project 9':
+                window.open('https://github.com/noureddinne21/Truecaller', '_blank');
+                break;
+            default:
+                break;
+        }
+    });
+});
         // Screenshot preview functionality
         document.querySelectorAll('.screenshot').forEach(screenshot => {
             screenshot.addEventListener('click', function() {
