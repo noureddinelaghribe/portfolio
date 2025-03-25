@@ -1164,42 +1164,46 @@
 
     <script>
         // وظيفة أزرار المشروع باستخدام switch-case
-document.querySelectorAll('.download-btn').forEach(button => {
+        document.querySelectorAll('.download-btn').forEach(button => {
     button.addEventListener('click', function() {
         const projectName = this.closest('.project-card').querySelector('.project-title').textContent.trim();
-        switch(projectName) {
-            case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+        console.log("Project Name:", projectName); // تحقق من القيم في وحدة التحكم
+
+        switch (projectName) {
+            case 'Write Flow':
+                window.open('https://play.google.com/store/apps/details?id=writeflow', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'vikindo':
+                window.open('https://play.google.com/store/apps/details?id=vikindo', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'SMPOS':
+                window.open('https://play.google.com/store/apps/details?id=SMPOS', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'EduQuest':
+                window.open('https://play.google.com/store/apps/details?id=eduquest', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'Sweet Store':
+                window.open('https://play.google.com/store/apps/details?id=sweetsstore', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'Note Pro':
+                window.open('https://play.google.com/store/apps/details?id=notepro', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'IOS Calculator':
+                window.open('https://play.google.com/store/apps/details?id=ioscalculator', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'Car Logo Quiz':
+                window.open('https://play.google.com/store/apps/details?id=carlogoquiz', '_blank');
                 break;
-                case '':
-                window.open('https://play.google.com/store/apps/details?id=project9', '_blank');
+            case 'TrueCaller':
+                window.open('https://play.google.com/store/apps/details?id=truecaller', '_blank');
                 break;
             default:
+                alert('الرابط غير متوفر لهذا المشروع.');
                 break;
         }
     });
 });
+
 
 document.querySelectorAll('.github-btn').forEach(button => {
     button.addEventListener('click', function() {
