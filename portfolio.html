@@ -305,7 +305,7 @@
             border-radius: 10px;
         }
 
-        .screenshot {
+/*         .screenshot {
             flex: 0 0 auto;
             width: 160px;
             height: 320px;
@@ -314,7 +314,31 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border-color);
             transition: var(--transition);
-        }
+        } */
+
+
+         .screenshot {
+    flex: 0 0 auto;
+    width: 160px;  /* Base width */
+    height: auto;  /* Remove fixed height */
+    aspect-ratio: 9/16;  /* Maintain vertical aspect ratio */
+    min-height: 280px;  /* Minimum height for smaller screens */
+    position: relative;  /* For absolute positioning of iframe */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+         @media (max-width: 480px) {
+    .screenshot {
+        width: 140px;
+        min-height: 250px;
+    }
+}
+
+         
 
         .screenshot:hover {
             transform: translateY(-3px);
